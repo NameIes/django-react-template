@@ -4,12 +4,10 @@ This boilerplate/starter template will help you or you team to jump-start any ne
 
 ## ✨ Features
 
----
-
 ### 🧑‍💻 Best Practices
 
 - [Python Decouple](https://github.com/HBNetwork/python-decouple)
-- `TODO:` [Just](https://github.com/casey/just)
+- [Just](https://github.com/casey/just)
 
 ### 📦️ Django packages
 
@@ -50,8 +48,6 @@ This boilerplate/starter template will help you or you team to jump-start any ne
 
 ## Installation
 
----
-
 ### Requirements
 
 Before proceeding make sure you have installed `Just`.
@@ -59,7 +55,18 @@ Before proceeding make sure you have installed `Just`.
 ### Creating enviroment and installing all requirements
 
 ```
-just create_venv
+python -m venv venv
+
+# Bash
+source .\venv\bin\activate
+
+# PowerShell
+.\venv\Scripts\Activate.ps1
+
+# Cmd
+.\venv\Scripts\activate.bat
+
+pip install -r .\backend\requirements.txt
 ```
 
 ### Start project
@@ -69,8 +76,6 @@ just start
 ```
 
 ## Usage
-
----
 
 Django + React Template comes with Just recipes for all the most common commands and tasks that an engineer will use during development. To see the full list of commands run `just -l` in the root of project directory. The following is an abbreviated list of the most common commands.
 

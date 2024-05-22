@@ -4,9 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "vite",
-    "dev": "vite build --emptyOutDir --base /static/frontend/dev --outDir ../backend/staticfiles/frontend/dev",
-    "build": "tsc && vite build --base /static/frontend/prod --outDir ../backend/staticfiles/frontend/prod",
+    "dev": "vite",
+    "build": "tsc && vite build --emptyOutDir --base /static/frontend --outDir ../backend/staticfiles/frontend",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
