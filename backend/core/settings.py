@@ -30,6 +30,9 @@ ALLOWED_HOSTS = []
 if DEBUG:
     ALLOWED_HOSTS += ['*']
 
+# IPs
+INTERNAL_IPS = ['127.0.0.1',]
+
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -151,3 +154,8 @@ if not DEBUG:
     SECURE_SSL_REDIRECT = True
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
+
+# Debug toolbar
+if DEBUG:
+    INSTALLED_APPS += ['debug_toolbar']
+    MIDDLEWARE += ['debug_toolbar.middleware.DebugToolbarMiddleware']
