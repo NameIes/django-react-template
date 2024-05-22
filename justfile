@@ -26,3 +26,8 @@ set windows-shell := ["powershell.exe", "-NoLogo", "-Command"]
 # Run Vite development server
 @start_frontend:
 	cd frontend; npm run dev
+
+# Format HTML
+@format_html:
+	echo "Formatting HTML using djLint"
+	{{ python }} djlint . --reformat --quiet
