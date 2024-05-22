@@ -2,50 +2,51 @@
 
 This boilerplate/starter template will help you or you team to jump-start any new `Django + React` project.
 
-## Features
+## ✨ Features
 
 ---
 
-### Best Practices
+### 🧑‍💻 Best Practices
 
-- Python Decouple
-- `TODO:` Just
+- [Python Decouple](https://github.com/HBNetwork/python-decouple)
+- `TODO:` [Just](https://github.com/casey/just)
 
-### Django packages
+### 📦️ Django packages
 
-- Django
-- `TODO:` Celery
-- `TODO:` Custom User Model
-- `TODO:` Django Allauth
+- [Django](https://www.djangoproject.com/)
+- `TODO:` [Celery](https://docs.celeryq.dev/en/stable/)
+- `TODO:` [Custom User Model](https://docs.djangoproject.com/en/5.0/topics/auth/customizing/#substituting-a-custom-user-model)
+- `TODO:` [Django Allauth](https://allauth.org/)
 
-### Python Testing Tools
+### 🔧 Python Testing Tools
 
-- `TODO:` Pytest
-- `TODO:` Pytest Django
-- `TODO:` Pytest-cov
-- `TODO:` Model Bakery
-- `TODO:` Django Test Plus
+- `TODO:` [Pytest](https://docs.pytest.org/)
+- `TODO:` [Pytest Django](https://pytest-django.readthedocs.io/en/latest/index.html)
+- `TODO:` [Pytest-cov](https://pytest-cov.readthedocs.io/)
+- `TODO:` [Model Bakery](https://github.com/model-bakers/model_bakery)
+- `TODO:` [Django Test Plus](https://github.com/revsys/django-test-plus/)
 
-### Code quality, Formatting, and Linting tools
+### 🩺 Code quality, Formatting, and Linting tools
 
-- `TODO:` Ruff
-- `TODO:` Mypy
-- `TODO:` dj Lint
-- Django Debug Toolbar
-- `TODO:` Stylelint
-- Eslint
+- `TODO:` [Ruff](https://github.com/charliermarsh/ruff)
+- `TODO:` [Mypy](http://mypy-lang.org/)
+- `TODO:` [dj Lint](https://djlint.com/)
+- [Django Debug Toolbar](https://github.com/jazzband/django-debug-toolbar)
+- `TODO:` [Stylelint](https://stylelint.io/)
+- [Eslint](https://eslint.org/)
 
-### Frontend
+### 💄 Frontend
 
-- Vite
-- `TODO:` MUI
+- [Vite](https://vitejs.dev/)
+- `TODO:` [MUI](https://mui.com/material-ui/getting-started/)
 
-### Documentation
+### 📝 Documentation
 
-- `TODO:` MkDocs Material
-- `TODO:` mkdocstrings
-- `TODO:` mkdocs-include-markdown-plugin
-- `TODO:` mkdocs-linkcheck
+- `TODO:` [MkDocs](https://www.mkdocs.org/)
+- `TODO:` [MkDocs Material](https://squidfunk.github.io/mkdocs-material/)
+- `TODO:` [mkdocstrings](https://mkdocstrings.github.io/)
+- `TODO:` [mkdocs-include-markdown-plugin](https://github.com/mondeja/mkdocs-include-markdown-plugin)
+- `TODO:` [mkdocs-linkcheck](https://github.com/byrnereese/linkchecker-mkdocs)
 
 ## Installation
 
@@ -53,4 +54,28 @@ This boilerplate/starter template will help you or you team to jump-start any ne
 
 ### Requirements
 
-Make sure you have installed `Just`, `Anaconda`.
+Before proceeding make sure you have installed `Just`.
+
+### Creating enviroment and installing all requirements
+
+```
+just create_venv
+```
+
+### Start project
+
+```
+just start
+```
+
+## Usage
+
+---
+
+Django + React Template comes with Just recipes for all the most common commands and tasks that an engineer will use during development. To see the full list of commands run `just -l` in the root of project directory. The following is an abbreviated list of the most common commands.
+
+```
+build_assets            # Build frontend assets
+clean                   # Remove build and cache files and test coverage data
+collectstatic           # Run Django's collectstatic management command
+```
