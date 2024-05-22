@@ -6,6 +6,11 @@ This boilerplate/starter template will help you or you team to jump-start any ne
 
 ---
 
+### Best Practices
+
+- Python Decouple
+- `TODO:` Just
+
 ### Django packages
 
 - Django
@@ -48,4 +53,4 @@ This boilerplate/starter template will help you or you team to jump-start any ne
 
 ### Requirements
 
-Make sure you have installed `Docker`, `Just`, `Anaconda`.
+Make sure you have installed `Just`, `Anaconda`.
