@@ -25,6 +25,9 @@ env:
 @start host="":
     python .\backend\manage.py runserver {{ host }}
 
+# Format all code
+@format: format_py format_js format_just format_sass format_html
+
 # Run Vite development server
 @start_frontend:
     cd frontend; npm run dev
@@ -46,11 +49,11 @@ env:
 
 # Format Python code
 @format_py:
-	echo "Formatting Python code using ruff"
-	ruff format
-	ruff check --fix
+    echo "Formatting Python code using ruff"
+    ruff format
+    ruff check --fix
 
 # Format SASS/CSS code
 @format_sass:
-	echo "Formatting SASS code using stylelint"
-	cd frontend; npm run format-sass
+    echo "Formatting SASS code using stylelint"
+    cd frontend; npm run format-sass
