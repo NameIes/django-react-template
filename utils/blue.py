@@ -1,9 +1,13 @@
 import sys
 
-import colorama
-
-colorama.init()
-
+try:
+    import colorama
+    colorama.init()
+    blue = colorama.Fore.BLUE
+    reset = colorama.Style.RESET_ALL
+except ImportError:
+    blue = ''
+    reset = ''
 
 if __name__ == "__main__":
-    print(f"{colorama.Fore.BLUE}▓▓▓ {sys.argv[1]}{colorama.Style.RESET_ALL}")
+    print(f"{blue}▓▓▓ {sys.argv[1]}{reset}")

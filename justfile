@@ -146,7 +146,7 @@ env:
 [private]
 @create_dotenv:
     just _start_msg "Creating .env"
-    python .\utils\create_dotenv.py
+    .\.venv\Scripts\python .\utils\create_dotenv.py
 
 # Create venv and install requirements
 @setup: install_node_packages && install_python_packages create_dotenv
