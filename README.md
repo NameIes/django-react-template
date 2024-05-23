@@ -37,7 +37,7 @@ This boilerplate/starter template will help you or you team to jump-start any ne
 ### 💄 Frontend
 
 - [Vite](https://vitejs.dev/) - A fast frontend build tool.
-- `TODO:` [MUI](https://mui.com/material-ui/getting-started/) - Popular UI framework.
+- [MUI](https://mui.com/material-ui/getting-started/) - Popular UI framework.
 
 ### 📝 Documentation
 
