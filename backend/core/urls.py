@@ -38,5 +38,6 @@ urlpatterns += [
     path("", Index.as_view(), name="index"),
 
     # If you want to use React Router Single Page Application then use this path.
-    # path(r"^.*$", Index.as_view()),
+    # Please note that this path must be at the end of the URL list.
+    # re_path(r"^.*$", Index.as_view()),
 ]
