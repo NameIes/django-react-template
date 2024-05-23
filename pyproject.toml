@@ -68,3 +68,27 @@ plugins = [
 
 [tool.django-stubs]
 django_settings_module = "backend.core.settings"
+
+[tool.pytest.ini_options]
+addopts = "--nomigrations --ds config.settings.test_runner --cov-config=coverage.ini"
+
+# Python warnings documentation: https://docs.python.org/3/library/warnings.html
+filterwarnings = [
+    # Set the default behavior for warnings to error, so it forces you to look into fixing them
+    "error",
+]
+
+[tool.bandit]
+exclude_dirs = ["tests", "node_modules"]
+
+[tool.coverage.run]
+branch = true
+source = ["."]
+omit = [
+    ".venv/*",
+    "manage.py",
+    "*migrations*",
+]
+
+[tool.coverage.html]
+directory = "htmlcov"

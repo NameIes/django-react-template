@@ -92,4 +92,12 @@ env:
     echo "Checking Python types using mypy"
     mypy .
 
-@pre_commit: format lint
+# Run tests without coverage
+@test:
+	cd backend; pytest --ds=core.settings
+
+# Run tests with coverage
+@test_with_coverage:
+	cd backend; pytest --cov --ds=core.settings; coverage html; .\htmlcov\index.html
+
+@pre_commit: format lint test
