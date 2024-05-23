@@ -83,3 +83,8 @@ env:
 @lint_sass:
 	echo "Checking SASS code using stylelint"
 	cd frontend; npm run lint-sass
+
+# Lint Python types
+@lint_types:
+	echo "Checking Python types using mypy"
+	mypy .
