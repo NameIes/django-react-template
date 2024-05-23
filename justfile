@@ -31,3 +31,8 @@ env:
 @format_html:
 	echo "Formatting HTML using djLint"
 	djlint . --reformat --quiet
+
+# Format JS
+@format_js:
+	echo "Formatting Javascript code using eslint"
+	cd frontend; npm run format-js

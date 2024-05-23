@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build --emptyOutDir --base /static/frontend --outDir ../backend/staticfiles/frontend",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint-js": "eslint --ext ts,tsx .",
+    "format-js": "eslint --ext ts,tsx --fix .",
     "preview": "vite preview"
   },
   "dependencies": {
