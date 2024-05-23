@@ -56,15 +56,7 @@ Before proceeding make sure you have installed `Just`.
 ### Creating enviroment and installing all requirements
 
 ```
-uv venv
-
-# Bash
-source .\venv\bin\activate
-
-# PowerShell / CMD
-.\venv\Scripts\activate
-
-uv pip install -r .\backend\requirements.txt
+just setup
 ```
 
 ### Start project

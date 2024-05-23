@@ -100,4 +100,27 @@ env:
 @test_with_coverage:
 	cd backend; pytest --cov --ds=core.settings; coverage html; .\htmlcov\index.html
 
+# Run pre-commit checks
 @pre_commit: format lint test
+
+# Upgrade node requirements based on `package.json` file
+@upgrade_node_packages:
+	echo "Upgrading node requirements"
+	cd frontend; npm upgrade
+
+# Upgrade python requirements
+@upgrade_python_packages:
+	uv pip compile --upgrade --generate-hashes --output-file .\backend\requirements\prod_lock.txt .\backend\requirements\prod.in
+	uv pip compile --upgrade --generate-hashes --output-file .\backend\requirements\dev_lock.txt .\backend\requirements\dev.in
+
+# Install python requirements
+@install_python_packages:
+	uv pip sync .\backend\requirements\dev_lock.txt
+
+# Install node requirements
+@install_node_packages:
+	cd frontend; npm i
+
+# Create venv and install requirements
+@setup: install_node_packages && install_python_packages
+	uv venv
