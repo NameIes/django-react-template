@@ -43,3 +43,9 @@ env:
 @format_just:
     echo "Formatting the justfile"
     just --fmt --unstable
+
+# Format Python code
+@format_py:
+	echo "Formatting Python code using ruff"
+	ruff format
+	ruff check --fix
