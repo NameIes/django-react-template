@@ -13,6 +13,14 @@ env:
 @_start_msg msg:
     python .\utils\blue.py "{{ msg }}"
 
+# Run Django's makemigrations management command
+@makemigrations:
+    python .\backend\manage.py makemigrations
+
+# Run Django's migrate management command
+@migrate:
+    python .\backend\manage.py migrate
+
 # Remove build files, python cache files and test coverage data
 @clean:
     python .\utils\clean.py
@@ -101,7 +109,7 @@ env:
 # Lint Python types
 @lint_types:
     just _start_msg "Checking Python types using mypy"
-    mypy .
+    cd .\backend; mypy --config-file ..\pyproject.toml .
 
 # Run tests without coverage
 @test:
