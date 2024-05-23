@@ -126,12 +126,20 @@ env:
 
 # Install python requirements
 @install_python_packages:
+    just _start_msg "Installing python requirements"
     uv pip sync .\backend\requirements\dev_lock.txt
 
 # Install node requirements
 @install_node_packages:
+    just _start_msg "Installing node requirements"
     cd frontend; npm i
 
+# Create .env file
+[private]
+@create_dotenv:
+    just _start_msg "Creating .env"
+    python .\utils\create_dotenv.py
+
 # Create venv and install requirements
-@setup: install_node_packages && install_python_packages
+@setup: install_node_packages && install_python_packages create_dotenv
     uv venv
