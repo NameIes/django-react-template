@@ -22,15 +22,15 @@ env:
     python .\backend\manage.py collectstatic --no-input --no-default-ignore --clear
 
 # Run Django's runserver
-@start host="":
+@start host="": build_frontend
     python .\backend\manage.py runserver {{ host }}
-
-# Format all code
-@format: format_py format_js format_just format_sass format_html
 
 # Run Vite development server
 @start_frontend:
     cd frontend; npm run dev
+
+# Format all code
+@format: format_py format_js format_just format_sass format_html
 
 # Format HTML
 @format_html:
