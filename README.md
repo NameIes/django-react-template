@@ -13,9 +13,9 @@ This boilerplate/starter template will help you or you team to jump-start any ne
 ### 📦️ Django packages
 
 - [Django](https://www.djangoproject.com/) - Latest version of Django.
-- `TODO:` [Celery](https://docs.celeryq.dev/en/stable/)
-- `TODO:` [Custom User Model](https://docs.djangoproject.com/en/5.0/topics/auth/customizing/#substituting-a-custom-user-model)
+- [Custom User Model](https://docs.djangoproject.com/en/5.0/topics/auth/customizing/#substituting-a-custom-user-model)
 - `TODO:` [Django Allauth](https://allauth.org/)
+- `TODO:` [Celery](https://docs.celeryq.dev/en/stable/)
 
 ### 🔧 Python Testing Tools
 

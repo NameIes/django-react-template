@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "api",
 ]
 
 # Middleware
@@ -160,3 +161,19 @@ if not DEBUG:
 if DEBUG:
     INSTALLED_APPS += ["debug_toolbar"]
     MIDDLEWARE += ["debug_toolbar.middleware.DebugToolbarMiddleware"]
+
+# Custom user model
+# https://docs.djangoproject.com/en/4.2/topics/auth/customizing/#substituting-a-custom-user-model
+AUTH_USER_MODEL = "api.CustomUser"
+
+# Logging
+# TODO
+
+# Allauth
+# TODO
+
+# Rest framework
+# TODO
+
+# Cors headers
+# TODO
