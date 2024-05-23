@@ -62,7 +62,7 @@ just setup
 ### Start project
 
 ```
-just start host - host is optional, by default 127.0.0.1:800
+just start host - host is optional, by default 127.0.0.1:8000
 ```
 
 ## Usage
