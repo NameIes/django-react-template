@@ -2,13 +2,13 @@ import shutil
 from pathlib import Path
 
 CLEAN_NAMES = (
-    '.mypy_cache',
-    '.pytest_cache',
-    '.ruff_cache',
-    '__pycache__',
-    '.coverage',
-    'htmlcov',
-    'docs_site',
+    ".mypy_cache",
+    ".pytest_cache",
+    ".ruff_cache",
+    "__pycache__",
+    ".coverage",
+    "htmlcov",
+    "docs_site",
 )
 
 if __name__ == "__main__":
