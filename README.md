@@ -22,7 +22,7 @@ This boilerplate/starter template will help you or you team to jump-start any ne
 - [Pytest](https://docs.pytest.org/)
 - [Pytest Django](https://pytest-django.readthedocs.io/en/latest/index.html)
 - [Pytest-cov](https://pytest-cov.readthedocs.io/)
-- `TODO:` [Model Bakery](https://github.com/model-bakers/model_bakery)
+- [Model Bakery](https://github.com/model-bakers/model_bakery)
 - [Django Test Plus](https://github.com/revsys/django-test-plus/)
 
 ### 🩺 Code quality, Formatting, and Linting tools
