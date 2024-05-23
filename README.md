@@ -16,6 +16,8 @@ This boilerplate/starter template will help you or you team to jump-start any ne
 - [Custom User Model](https://docs.djangoproject.com/en/5.0/topics/auth/customizing/#substituting-a-custom-user-model)
 - `TODO:` [Django Allauth](https://allauth.org/)
 - `TODO:` [Celery](https://docs.celeryq.dev/en/stable/)
+- `TODO:` [CORS Headers](https://github.com/adamchainz/django-cors-headers)
+- `TODO:` [Django Rest Framework](https://www.django-rest-framework.org/)
 
 ### 🔧 Python Testing Tools
 
@@ -38,6 +40,7 @@ This boilerplate/starter template will help you or you team to jump-start any ne
 
 - [Vite](https://vitejs.dev/) - A fast frontend build tool.
 - [MUI](https://mui.com/material-ui/getting-started/) - Popular UI framework.
+- `TODO:` [Axios](https://axios-http.com/docs/intro)
 
 ### 📝 Documentation
 
