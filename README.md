@@ -29,7 +29,7 @@ This boilerplate/starter template will help you or you team to jump-start any ne
 
 - [Ruff](https://github.com/charliermarsh/ruff)
 - `TODO:` [Mypy](http://mypy-lang.org/)
-- `TODO:` [dj Lint](https://djlint.com/)
+- [dj Lint](https://djlint.com/)
 - [Django Debug Toolbar](https://github.com/jazzband/django-debug-toolbar)
 - `TODO:` [Stylelint](https://stylelint.io/)
 - [Eslint](https://eslint.org/)
