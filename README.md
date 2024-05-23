@@ -41,11 +41,11 @@ This boilerplate/starter template will help you or you team to jump-start any ne
 
 ### 📝 Documentation
 
-- `TODO:` [MkDocs](https://www.mkdocs.org/)
-- `TODO:` [MkDocs Material](https://squidfunk.github.io/mkdocs-material/)
-- `TODO:` [mkdocstrings](https://mkdocstrings.github.io/)
-- `TODO:` [mkdocs-include-markdown-plugin](https://github.com/mondeja/mkdocs-include-markdown-plugin)
-- `TODO:` [mkdocs-linkcheck](https://github.com/byrnereese/linkchecker-mkdocs)
+- [MkDocs](https://www.mkdocs.org/) - Static site generator that's geared towards building project documentation.
+- [MkDocs Material](https://squidfunk.github.io/mkdocs-material/) - Beautify MkDocs theme.
+- [mkdocstrings](https://mkdocstrings.github.io/) - Build documentation from Python docstrings.
+- [mkdocs-include-markdown-plugin](https://github.com/mondeja/mkdocs-include-markdown-plugin) - Include docs from other files.
+- [mkdocs-linkcheck](https://github.com/byrnereese/linkchecker-mkdocs) - Automatic link checking.
 
 ## Installation
 
@@ -67,7 +67,7 @@ just start host - host is optional, by default 127.0.0.1:8000
 
 ## Usage
 
-Django + React Template comes with Just recipes for all the most common commands and tasks that an engineer will use during development. To see the full list of commands run `just -l` in the root of project directory. The following is an abbreviated list of the most common commands.
+Django + React Template comes with Just recipes for all the most common commands and tasks that an engineer will use during development. To see the full list of commands run `just` in the root of project directory. The following is an abbreviated list of the most common commands.
 
 ```
 clean                   # Remove build files, python cache files and test coverage data

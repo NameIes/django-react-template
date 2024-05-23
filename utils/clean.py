@@ -8,6 +8,7 @@ CLEAN_NAMES = (
     '__pycache__',
     '.coverage',
     'htmlcov',
+    'docs_site',
 )
 
 if __name__ == "__main__":

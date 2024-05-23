@@ -28,6 +28,10 @@ env:
     just _start_msg "Collecting static files..."
     python .\backend\manage.py collectstatic --no-input --no-default-ignore --clear
 
+# Run MkDocs server
+@docs:
+    mkdocs serve
+
 # Run Django's runserver
 @start host="": build_frontend
     python .\backend\manage.py runserver {{ host }}

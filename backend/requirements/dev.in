@@ -7,3 +7,8 @@ model-bakery
 mypy
 pytest
 ruff
+mkdocs
+mkdocs-include-markdown-plugin
+mkdocs-linkcheck
+mkdocs-material
+mkdocstrings[python]

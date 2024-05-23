@@ -1,0 +1,40 @@
+site_name: Django + React template
+repo_url: https://github.com/NameIes/django-react-template
+repo_name: NameIes/django-react-template
+docs_dir: ./docs/
+site_dir: ./docs_site/
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue
+      accent: light blue
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue
+      accent: light blue
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+
+plugins:
+  - include-markdown
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          setup_commands:
+            - "import os"
+            - "import django"
+            - "os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'core.settings')"
+            - "django.setup()"
