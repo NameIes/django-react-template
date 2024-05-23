@@ -28,7 +28,7 @@ This boilerplate/starter template will help you or you team to jump-start any ne
 ### 🩺 Code quality, Formatting, and Linting tools
 
 - [Ruff](https://github.com/charliermarsh/ruff)
-- `TODO:` [Mypy](http://mypy-lang.org/)
+- [Mypy](http://mypy-lang.org/)
 - [dj Lint](https://djlint.com/)
 - [Django Debug Toolbar](https://github.com/jazzband/django-debug-toolbar)
 - [Stylelint](https://stylelint.io/)

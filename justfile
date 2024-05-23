@@ -58,33 +58,38 @@ env:
     echo "Formatting SASS code using stylelint"
     cd frontend; npm run format-sass
 
+# Lint everything
+@lint: lint_js lint_sass lint_html lint_py lint_migrations lint_types
+
 # Lint HTML
 @lint_html:
-	echo "Checking HTML using djLint"
-	djlint . --lint
+    echo "Checking HTML using djLint"
+    djlint . --lint
 
 # Lint Javascript
 @lint_js:
-	echo "Checking Javascript code using eslint"
-	cd frontend; npm run lint-js
+    echo "Checking Javascript code using eslint"
+    cd frontend; npm run lint-js
 
 # Check for missing Django migrations
 @lint_migrations:
-	echo "Check for missing Django migrations"
-	python .\backend\manage.py makemigrations --check --dry-run
+    echo "Check for missing Django migrations"
+    python .\backend\manage.py makemigrations --check --dry-run
 
 # Lint Python code using Ruff
 @lint_py:
-	echo "Checking Python code using Ruff"
-	ruff check
-	ruff format --check
+    echo "Checking Python code using Ruff"
+    ruff check
+    ruff format --check
 
 # Lint SASS code with stylelint
 @lint_sass:
-	echo "Checking SASS code using stylelint"
-	cd frontend; npm run lint-sass
+    echo "Checking SASS code using stylelint"
+    cd frontend; npm run lint-sass
 
 # Lint Python types
 @lint_types:
-	echo "Checking Python types using mypy"
-	mypy .
+    echo "Checking Python types using mypy"
+    mypy .
+
+@pre_commit: format lint
