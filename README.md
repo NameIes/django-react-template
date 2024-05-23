@@ -40,7 +40,7 @@ This boilerplate/starter template will help you or you team to jump-start any ne
 
 - [Vite](https://vitejs.dev/) - A fast frontend build tool.
 - [MUI](https://mui.com/material-ui/getting-started/) - Popular UI framework.
-- `TODO:` [Axios](https://axios-http.com/docs/intro)
+- [Axios](https://axios-http.com/docs/intro) - A promise-based HTTP Client for node.js and the browser.
 
 ### 📝 Documentation
 
