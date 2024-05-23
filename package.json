@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build --emptyOutDir --base /static/frontend --outDir ../backend/staticfiles/frontend",
+    "build": "tsc && vite build --emptyOutDir --base /static/frontend --outDir ./staticfiles/frontend",
     "lint-js": "eslint --ext ts,tsx .",
     "lint-sass": "stylelint 'src/**/*.{css,scss}'",
     "format-js": "eslint --ext ts,tsx --fix .",

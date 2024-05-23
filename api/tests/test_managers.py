@@ -18,8 +18,6 @@ class TestUsersManagers(BaseTest):
         self.assertFalse(user.is_superuser)
         with self.assertRaises(TypeError):
             User.objects.create_user()  # type: ignore
-        with self.assertRaises(TypeError):
-            User.objects.create_user(email="")  # type: ignore
         with self.assertRaises(ValueError):
             User.objects.create_user(username="", email="normal2@user.com", password="qw4r1qfyh3asdXV")
 

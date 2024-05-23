@@ -20,12 +20,15 @@ Including another URLconf
 
 from django.conf import settings
 from django.contrib import admin
-from django.urls import include, path, re_path
+from django.urls import include, path
 
 from api.views import Index
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("api/v1/", include("api.urls")),
+    path('api/auth/', include('dj_rest_auth.urls')),
+    path('api/auth/registration/', include('dj_rest_auth.registration.urls')),
 ]
 
 if settings.DEBUG:

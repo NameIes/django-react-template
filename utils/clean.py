@@ -12,7 +12,7 @@ CLEAN_NAMES = (
 )
 
 if __name__ == "__main__":
-    project_dir = Path(__file__).parent.parent.resolve()
+    project_dir = Path(__file__).parent.resolve()
 
     for f in project_dir.rglob("*"):
         if f.name in CLEAN_NAMES:

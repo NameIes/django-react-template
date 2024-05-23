@@ -14,12 +14,12 @@ env:
     python .\utils\blue.py "{{ msg }}"
 
 # Run Django's makemigrations management command
-@makemigrations:
-    python .\backend\manage.py makemigrations
+@makemigrations +attrs="":
+    python manage.py makemigrations {{ attrs }}
 
 # Run Django's migrate management command
 @migrate:
-    python .\backend\manage.py migrate
+    python manage.py migrate
 
 # Remove build files, python cache files and test coverage data
 @clean:
@@ -28,13 +28,13 @@ env:
 # Build frontend assets
 @build_frontend:
     just _start_msg "Building frontend..."
-    cd frontend; npm run build
+    npm run build
     just collectstatic
 
 # Run Django's collectstatic management command
 @collectstatic:
     just _start_msg "Collecting static files..."
-    python .\backend\manage.py collectstatic --no-input --no-default-ignore --clear
+    python manage.py collectstatic --no-input --no-default-ignore --clear
 
 # Run MkDocs server
 @docs:
@@ -42,11 +42,11 @@ env:
 
 # Run Django's runserver
 @start host="": build_frontend
-    python .\backend\manage.py runserver {{ host }}
+    python manage.py runserver {{ host }}
 
 # Run Vite development server
 @start_frontend:
-    cd frontend; npm run dev
+    npm run dev
 
 # Format all code
 @format: format_py format_js format_just format_sass format_html
@@ -59,7 +59,7 @@ env:
 # Format JS
 @format_js:
     just _start_msg "Formatting Javascript code using eslint"
-    cd frontend; npm run format-js
+    npm run format-js
 
 # Format Just
 @format_just:
@@ -75,7 +75,7 @@ env:
 # Format SASS/CSS code
 @format_sass:
     just _start_msg "Formatting SASS code using stylelint"
-    cd frontend; npm run format-sass
+    npm run format-sass
 
 # Lint everything
 @lint: lint_js lint_sass lint_html lint_py lint_migrations lint_types
@@ -88,12 +88,12 @@ env:
 # Lint Javascript
 @lint_js:
     just _start_msg "Checking Javascript code using eslint"
-    cd frontend; npm run lint-js
+    npm run lint-js
 
 # Check for missing Django migrations
 @lint_migrations:
     just _start_msg "Check for missing Django migrations"
-    python .\backend\manage.py makemigrations --check --dry-run
+    python manage.py makemigrations --check --dry-run
 
 # Lint Python code using Ruff
 @lint_py:
@@ -104,20 +104,20 @@ env:
 # Lint SASS code with stylelint
 @lint_sass:
     just _start_msg "Checking SASS code using stylelint"
-    cd frontend; npm run lint-sass
+    npm run lint-sass
 
 # Lint Python types
 @lint_types:
     just _start_msg "Checking Python types using mypy"
-    cd .\backend; mypy --config-file ..\pyproject.toml .
+    mypy --config-file .\pyproject.toml .
 
 # Run tests without coverage
 @test:
-    cd backend; pytest --ds=core.settings
+    pytest --ds=core.settings
 
 # Run tests with coverage
 @test_with_coverage:
-    cd backend; pytest --cov --ds=core.settings; coverage html; .\htmlcov\index.html
+    pytest --cov --ds=core.settings; coverage html; .\htmlcov\index.html
 
 # Run pre-commit checks
 @pre_commit: format lint test
@@ -125,22 +125,22 @@ env:
 # Upgrade node requirements based on `package.json` file
 @upgrade_node_packages:
     just _start_msg "Upgrading node requirements"
-    cd frontend; npm upgrade
+    npm upgrade
 
 # Upgrade python requirements
 @upgrade_python_packages:
-    uv pip compile --upgrade --generate-hashes --output-file .\backend\requirements\prod_lock.txt .\backend\requirements\prod.in
-    uv pip compile --upgrade --generate-hashes --output-file .\backend\requirements\dev_lock.txt .\backend\requirements\dev.in
+    uv pip compile --upgrade --generate-hashes --output-file .\requirements\prod_lock.txt .\requirements\prod.in
+    uv pip compile --upgrade --generate-hashes --output-file .\requirements\dev_lock.txt .\requirements\dev.in
 
 # Install python requirements
 @install_python_packages:
     just _start_msg "Installing python requirements"
-    uv pip sync .\backend\requirements\dev_lock.txt
+    uv pip install -r .\requirements\dev.in
 
 # Install node requirements
 @install_node_packages:
     just _start_msg "Installing node requirements"
-    cd frontend; npm i
+    npm i
 
 # Create .env file
 [private]
