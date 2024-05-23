@@ -8,6 +8,7 @@
     "build": "tsc && vite build --emptyOutDir --base /static/frontend --outDir ../backend/staticfiles/frontend",
     "lint-js": "eslint --ext ts,tsx .",
     "format-js": "eslint --ext ts,tsx --fix .",
+    "format-sass": "stylelint --fix 'src/**/*.{css,scss}'",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -23,6 +24,11 @@
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
+    "stylelint": "^16.5.0",
+    "stylelint-config-recess-order": "^5.0.1",
+    "stylelint-config-standard": "^36.0.0",
+    "stylelint-config-standard-scss": "^13.1.0",
+    "stylelint-order": "^6.0.4",
     "typescript": "^5.2.2",
     "vite": "^5.2.0"
   }

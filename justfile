@@ -49,3 +49,8 @@ env:
 	echo "Formatting Python code using ruff"
 	ruff format
 	ruff check --fix
+
+# Format SASS/CSS code
+@format_sass:
+	echo "Formatting SASS code using stylelint"
+	cd frontend; npm run format-sass

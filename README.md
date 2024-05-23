@@ -31,7 +31,7 @@ This boilerplate/starter template will help you or you team to jump-start any ne
 - `TODO:` [Mypy](http://mypy-lang.org/)
 - [dj Lint](https://djlint.com/)
 - [Django Debug Toolbar](https://github.com/jazzband/django-debug-toolbar)
-- `TODO:` [Stylelint](https://stylelint.io/)
+- [Stylelint](https://stylelint.io/)
 - [Eslint](https://eslint.org/)
 
 ### 💄 Frontend
