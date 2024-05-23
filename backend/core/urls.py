@@ -20,16 +20,23 @@ Including another URLconf
 
 from django.conf import settings
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import include, path, re_path
 
 from api.views import Index
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", Index.as_view(), name="index"),
 ]
 
 if settings.DEBUG:
     urlpatterns += [
         path("__debug__/", include("debug_toolbar.urls")),
     ]
+
+urlpatterns += [
+    # If you want to use Django Server Side Rendering then use this path.
+    path("", Index.as_view(), name="index"),
+
+    # If you want to use React Router Single Page Application then use this path.
+    # path(r"^.*$", Index.as_view()),
+]
