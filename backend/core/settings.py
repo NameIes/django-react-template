@@ -167,7 +167,53 @@ if DEBUG:
 AUTH_USER_MODEL = "api.CustomUser"
 
 # Logging
-# TODO
+DEBUG_LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "verbose": {
+            "format": "{levelname} - {asctime} - {module} - {message}",
+            "style": "{",
+        },
+    },
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "formatter": "verbose",
+        },
+    },
+    "loggers": {
+        "django.request": {
+            "level": "DEBUG",
+            "handlers": ["console"],
+            "propagate": False,
+        },
+    },
+}
+
+PROD_LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "verbose": {"format": "%(levelname)s - %(asctime)s - %(module)s - %(message)s"},
+    },
+    "handlers": {
+        "file": {
+            "class": "logging.FileHandler",
+            "filename": "/www/logs/django.log",
+            "formatter": "verbose",
+        },
+    },
+    "loggers": {
+        "django.request": {
+            "level": "ERROR",
+            "handlers": ["console"],
+            "propagate": False,
+        },
+    },
+}
+
+LOGGING = DEBUG_LOGGING if DEBUG else PROD_LOGGING
 
 # Allauth
 # TODO
