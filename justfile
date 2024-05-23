@@ -1,8 +1,8 @@
-# Python venv
-python := if os_family() == "windows" { "./.venv/Scripts/python.exe" } else { "./.venv/bin/python" }
-
 # Shell
 set windows-shell := ["powershell.exe", "-NoLogo", "-Command"]
+
+env:
+	.\.venv\Scripts\activate
 
 # List available commands
 @_default:
@@ -17,11 +17,11 @@ set windows-shell := ["powershell.exe", "-NoLogo", "-Command"]
 # Run Django's collectstatic management command
 @collectstatic:
 	echo "Collecting static files..."
-	{{ python }} .\backend\manage.py collectstatic --no-input --no-default-ignore --clear
+	python .\backend\manage.py collectstatic --no-input --no-default-ignore --clear
 
 # Run Django's runserver
 @start host="":
-	{{ python }} .\backend\manage.py runserver {{host}}
+	python .\backend\manage.py runserver {{host}}
 
 # Run Vite development server
 @start_frontend:
@@ -30,4 +30,4 @@ set windows-shell := ["powershell.exe", "-NoLogo", "-Command"]
 # Format HTML
 @format_html:
 	echo "Formatting HTML using djLint"
-	{{ python }} djlint . --reformat --quiet
+	djlint . --reformat --quiet
