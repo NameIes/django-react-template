@@ -11,7 +11,11 @@ env:
     .\.venv\Scripts\activate
 
 @_start_msg msg:
-    python blue.py "{{ msg }}"
+    python .\utils\blue.py "{{ msg }}"
+
+# Remove build files, python cache files and test coverage data
+@clean:
+    python .\utils\clean.py
 
 # Build frontend assets
 @build_frontend:

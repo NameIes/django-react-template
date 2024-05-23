@@ -70,6 +70,7 @@ just start host - host is optional, by default 127.0.0.1:800
 Django + React Template comes with Just recipes for all the most common commands and tasks that an engineer will use during development. To see the full list of commands run `just -l` in the root of project directory. The following is an abbreviated list of the most common commands.
 
 ```
+clean                   # Remove build files, python cache files and test coverage data
 build_frontend          # Build frontend assets
 collectstatic           # Run Django's collectstatic management command
 start                   # Run Django's runserver management command
