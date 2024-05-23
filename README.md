@@ -8,6 +8,7 @@ This boilerplate/starter template will help you or you team to jump-start any ne
 
 - [Python Decouple](https://github.com/HBNetwork/python-decouple)
 - [Just](https://github.com/casey/just)
+- [UV](https://github.com/astral-sh/uv)
 
 ### 📦️ Django packages
 
@@ -55,18 +56,15 @@ Before proceeding make sure you have installed `Just`.
 ### Creating enviroment and installing all requirements
 
 ```
-python -m venv venv
+uv venv
 
 # Bash
 source .\venv\bin\activate
 
-# PowerShell
-.\venv\Scripts\Activate.ps1
+# PowerShell / CMD
+.\venv\Scripts\activate
 
-# Cmd
-.\venv\Scripts\activate.bat
-
-pip install -r .\backend\requirements.txt
+uv pip install -r .\backend\requirements.txt
 ```
 
 ### Start project

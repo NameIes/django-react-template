@@ -1,5 +1,5 @@
 # Python venv
-python := if os_family() == "windows" { "./venv/Scripts/python.exe" } else { "./venv/bin/python" }
+python := if os_family() == "windows" { "./.venv/Scripts/python.exe" } else { "./.venv/bin/python" }
 
 # Shell
 set windows-shell := ["powershell.exe", "-NoLogo", "-Command"]
