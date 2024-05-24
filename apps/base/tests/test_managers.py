@@ -1,6 +1,6 @@
 from django.contrib.auth import get_user_model
 
-from api.tests import BaseTest
+from apps.base.tests import BaseTest
 
 
 class UsersManagersTests(BaseTest):

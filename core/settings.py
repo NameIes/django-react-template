@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "api",
+    "apps.base",
     "corsheaders",
     "rest_framework",
     "rest_framework.authtoken",
@@ -175,7 +175,7 @@ if DEBUG:
 
 # Custom user model
 # https://docs.djangoproject.com/en/4.2/topics/auth/customizing/#substituting-a-custom-user-model
-AUTH_USER_MODEL = "api.CustomUser"
+AUTH_USER_MODEL = "base.CustomUser"
 
 # Logging
 DEBUG_LOGGING = {
