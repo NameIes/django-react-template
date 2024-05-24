@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "api",
+    "corsheaders",
     "rest_framework",
     "rest_framework.authtoken",
     "dj_rest_auth",
@@ -59,6 +60,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -225,7 +227,8 @@ PROD_LOGGING = {
 LOGGING = DEBUG_LOGGING if DEBUG else PROD_LOGGING
 
 # Cors headers
-# TODO
+if DEBUG:
+    CORS_ORIGIN_ALLOW_ALL = True
 
 # Rest framework
 REST_FRAMEWORK = {

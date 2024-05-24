@@ -16,8 +16,8 @@ This boilerplate/starter template will help you or you team to jump-start any ne
 - [Custom User Model](https://docs.djangoproject.com/en/5.0/topics/auth/customizing/#substituting-a-custom-user-model)
 - [Django Rest Framework](https://www.django-rest-framework.org/)
 - [dj-rest-auth](https://dj-rest-auth.readthedocs.io/)
+- [CORS Headers](https://github.com/adamchainz/django-cors-headers)
 - `TODO:` [Celery](https://docs.celeryq.dev/en/stable/)
-- `TODO:` [CORS Headers](https://github.com/adamchainz/django-cors-headers)
 
 ### 🔧 Python Testing Tools
 
