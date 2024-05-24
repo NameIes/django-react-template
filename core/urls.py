@@ -34,6 +34,7 @@ urlpatterns: list[URLPattern | URLResolver] = [
 if settings.DEBUG:
     urlpatterns += [
         path("__debug__/", include("debug_toolbar.urls")),
+        path('admin/doc/', include('django.contrib.admindocs.urls')),
     ]
 
 urlpatterns += [
