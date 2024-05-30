@@ -246,6 +246,7 @@ AUTHENTICATION_BACKENDS = [
     "allauth.account.auth_backends.AuthenticationBackend",
     "django.contrib.auth.backends.ModelBackend",
 ]
+ACCOUNT_AUTHENTICATION_METHOD = 'username'
 
 # Rest Auth
 REST_AUTH = {
@@ -253,3 +254,7 @@ REST_AUTH = {
     "JWT_AUTH_COOKIE": "access",
     "JWT_AUTH_REFRESH_COOKIE": "refresh",
 }
+
+# Emails
+if DEBUG:
+    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
