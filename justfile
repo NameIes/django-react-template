@@ -134,18 +134,18 @@ env:
 
 # Install python requirements
 @install_python_packages:
-    just _start_msg "Installing python requirements"
+    # just _start_msg "Installing python requirements"
     uv pip install -r .\requirements\dev.in
 
 # Install node requirements
 @install_node_packages:
-    just _start_msg "Installing node requirements"
+    # just _start_msg "Installing node requirements"
     npm i
 
 # Create .env file
 [private]
 @create_dotenv:
-    just _start_msg "Creating .env"
+    # just _start_msg "Creating .env"
     .\.venv\Scripts\python .\utils\create_dotenv.py
 
 # Create venv and install requirements
