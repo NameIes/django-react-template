@@ -2,6 +2,9 @@
 
 This boilerplate/starter template will help you or you team to jump-start any new `Django + React` project.
 
+This template was designed for use on hosting (not VPS) on which it is impossible to install applications such as Docker, Nginx, Redis, etc.
+Of course, you can use this template on VPS and customize it yourself to work with similar applications.
+
 ## ✨ Features
 
 ### 🧑‍💻 Best Practices
@@ -17,7 +20,7 @@ This boilerplate/starter template will help you or you team to jump-start any ne
 - [Django Rest Framework](https://www.django-rest-framework.org/) - Powerful and flexible toolkit for building Web APIs.
 - [dj-rest-auth](https://dj-rest-auth.readthedocs.io/) - Popular package for adding authentication workflows to a Django Rest Framework.
 - [CORS Headers](https://github.com/adamchainz/django-cors-headers) - A Django app that adds Cross-Origin Resource Sharing (CORS) headers to responses.
-- `TODO:` [Celery](https://docs.celeryq.dev/en/stable/) - Most popular task runner for running asynchronous tasks in the background.
+<!-- - `TODO:` [Celery](https://docs.celeryq.dev/en/stable/) - Most popular task runner for running asynchronous tasks in the background. -->
 
 ### 🔧 Python Testing Tools
 
