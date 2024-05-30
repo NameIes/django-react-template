@@ -3,6 +3,7 @@ repo_url: https://github.com/NameIes/django-react-template
 repo_name: NameIes/django-react-template
 docs_dir: ./docs/
 site_dir: ./docs_site/
+dev_addr: '127.0.0.1:8001'
 
 theme:
   name: material
