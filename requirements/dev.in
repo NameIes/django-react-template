@@ -12,3 +12,4 @@ mkdocs-include-markdown-plugin
 mkdocs-linkcheck
 mkdocs-material
 mkdocstrings[python]
+django-stubs[compatible-mypy]
