@@ -27,7 +27,7 @@ SECRET_KEY = config("SECRET_KEY")
 DEBUG = config("DEBUG", default=False, cast=bool)
 
 # Hosts
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 if DEBUG:
     ALLOWED_HOSTS += ["*"]
 
@@ -59,6 +59,7 @@ INSTALLED_APPS = [
 # Middleware
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -145,8 +146,8 @@ STATICFILES_FINDERS = (
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
 )
 
-MEDIA_ROOT = Path("/www/media/")
-STATIC_ROOT = Path("/www/static/")
+MEDIA_ROOT = BASE_DIR / "media"
+STATIC_ROOT = BASE_DIR / "static"
 if DEBUG:
     MEDIA_ROOT = BASE_DIR / "media"
     STATIC_ROOT = BASE_DIR / "static"
@@ -154,12 +155,17 @@ if DEBUG:
 STATIC_URL = "static/"
 MEDIA_URL = "media/"
 
-STATICFILES_BASE = BASE_DIR / "staticfiles"
+STATICFILES_BASE = BASE_DIR / "static"
 REACT_JS_BUILD_DIR = STATICFILES_BASE / "frontend"
 
 STATICFILES_DIRS = [
-    STATICFILES_BASE,
+    BASE_DIR / "staticfiles",
 ]
+
+# Whitenoise
+STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
+if DEBUG:
+    INSTALLED_APPS.insert(0, 'whitenoise.runserver_nostatic')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -217,14 +223,14 @@ PROD_LOGGING = {
     "handlers": {
         "file": {
             "class": "logging.FileHandler",
-            "filename": "/www/logs/django.log",
+            "filename": str(BASE_DIR / "django.log"),
             "formatter": "verbose",
         },
     },
     "loggers": {
         "django.request": {
             "level": "ERROR",
-            "handlers": ["console"],
+            "handlers": ["file"],
             "propagate": False,
         },
     },

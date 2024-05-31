@@ -42,7 +42,7 @@ env:
 
 # Run Django's runserver
 @start host="": build_frontend
-    python manage.py runserver {{ host }}
+    python manage.py runserver {{ host }} --nostatic --insecure
 
 # Run Vite development server
 @start_frontend:

@@ -22,6 +22,7 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import include, path, re_path
 from django.urls.resolvers import URLPattern, URLResolver
+from django.conf.urls.static import static
 
 from dj_rest_auth.views import PasswordResetConfirmView, PasswordResetView
 
@@ -44,6 +45,8 @@ if settings.DEBUG:
         path("__debug__/", include("debug_toolbar.urls")),
         path("admin/doc/", include("django.contrib.admindocs.urls")),
     ]
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += [
     # If you want to use Django Server Side Rendering then use this path.
