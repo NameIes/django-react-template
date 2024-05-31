@@ -247,10 +247,10 @@ AUTHENTICATION_BACKENDS = [
     "allauth.account.auth_backends.AuthenticationBackend",
     "django.contrib.auth.backends.ModelBackend",
 ]
-ACCOUNT_AUTHENTICATION_METHOD = 'username'
-ACCOUNT_ADAPTER = 'apps.base.adapter.ReactAccountAdapter'
-CONFIRM_EMAIL_FRONTEND_URL = 'http://localhost:8000/confirm-email'
-PASSWORD_RESET_FRONTEND_URL  = 'http://localhost:8000/verify-email'
+ACCOUNT_AUTHENTICATION_METHOD = "username"
+ACCOUNT_ADAPTER = "apps.base.adapter.ReactAccountAdapter"
+CONFIRM_EMAIL_FRONTEND_URL = "http://localhost:8000/confirm-email"
+PASSWORD_RESET_FRONTEND_URL = "http://localhost:8000/verify-email"  # noqa: S105
 
 # Rest Auth
 REST_AUTH = {

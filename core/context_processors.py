@@ -11,4 +11,4 @@ def reactjs_assets_paths(request):
 
 
 def password_reset(request):
-    return { 'password_reset_frontend_url': settings.PASSWORD_RESET_FRONTEND_URL }
+    return {"password_reset_frontend_url": settings.PASSWORD_RESET_FRONTEND_URL}
