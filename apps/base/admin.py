@@ -5,7 +5,7 @@ from .forms import CustomUserChangeForm, CustomUserCreationForm
 from .models import CustomUser
 
 
-class CustomUserAdmin(UserAdmin):
+class CustomUserAdmin(UserAdmin):  # type: ignore
     add_form = CustomUserCreationForm
     form = CustomUserChangeForm
     model = CustomUser
@@ -16,14 +16,21 @@ class CustomUserAdmin(UserAdmin):
         ("Permissions", {"fields": ("is_staff", "is_active", "is_superuser", "groups", "user_permissions")}),
     )
     add_fieldsets = (
-        (None, {
+        None,
+        {
             "classes": ("wide",),
             "fields": (
-                "username", "email", "password1", "password2",
-                "is_staff", "is_active", "is_superuser",
-                "groups", "user_permissions"
+                "username",
+                "email",
+                "password1",
+                "password2",
+                "is_staff",
+                "is_active",
+                "is_superuser",
+                "groups",
+                "user_permissions",
             ),
-        })
+        },
     )
     search_fields = ["email", "username"]
     ordering = ["email", "username"]
