@@ -83,7 +83,7 @@ env:
 # Lint HTML
 @lint_html:
     just _start_msg "Checking HTML using djLint"
-    djlint . --lint
+    djlint . --lint --extend-exclude "static,staticfiles"
 
 # Lint Javascript
 @lint_js:
