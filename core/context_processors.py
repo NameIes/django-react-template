@@ -8,3 +8,7 @@ def reactjs_assets_paths(request):
         "reactjs_assets_js_paths": [str(x.relative_to(staticfiles_base)) for x in build_files.rglob("*.js")],
         "reactjs_assets_css_paths": [str(x.relative_to(staticfiles_base)) for x in build_files.rglob("*.css")],
     }
+
+
+def password_reset(request):
+    return { 'password_reset_frontend_url': settings.PASSWORD_RESET_FRONTEND_URL }

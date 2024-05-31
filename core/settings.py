@@ -85,6 +85,7 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 "core.context_processors.reactjs_assets_paths",
+                "core.context_processors.password_reset",
             ],
         },
     },
@@ -247,6 +248,9 @@ AUTHENTICATION_BACKENDS = [
     "django.contrib.auth.backends.ModelBackend",
 ]
 ACCOUNT_AUTHENTICATION_METHOD = 'username'
+ACCOUNT_ADAPTER = 'apps.base.adapter.ReactAccountAdapter'
+CONFIRM_EMAIL_FRONTEND_URL = 'http://localhost:8000/confirm-email'
+PASSWORD_RESET_FRONTEND_URL  = 'http://localhost:8000/verify-email'
 
 # Rest Auth
 REST_AUTH = {
