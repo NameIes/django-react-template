@@ -251,7 +251,6 @@ REST_FRAMEWORK = {
 SITE_ID = 1
 AUTHENTICATION_BACKENDS = [
     "allauth.account.auth_backends.AuthenticationBackend",
-    "django.contrib.auth.backends.ModelBackend",
 ]
 ACCOUNT_AUTHENTICATION_METHOD = "username"
 ACCOUNT_ADAPTER = "apps.base.adapter.ReactAccountAdapter"
