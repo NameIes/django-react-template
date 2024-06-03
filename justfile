@@ -38,11 +38,17 @@ env:
 
 # Run MkDocs server
 @docs:
-    mkdocs serve
+    Start-Process -FilePath "powershell.exe" -ArgumentList "-NoExit", "-Command", "mkdocs serve"
+    Start-Sleep -Seconds 3
+    start http://localhost:8001
 
-# Run Django's runserver
+# Build frontend and run Django's runserver
 @start host="": build_frontend
     python manage.py runserver {{ host }} --nostatic --insecure
+
+# Run Django's runserver
+@start_backend host="":
+    python manage.py runserver {{ host }}
 
 # Run Vite development server
 @start_frontend:
