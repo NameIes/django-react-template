@@ -27,7 +27,7 @@ SECRET_KEY = config("SECRET_KEY")
 DEBUG = config("DEBUG", default=False, cast=bool)
 
 # Hosts
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 if DEBUG:
     ALLOWED_HOSTS += ["*"]
 
@@ -165,7 +165,7 @@ STATICFILES_DIRS = [
 # Whitenoise
 STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
 if DEBUG:
-    INSTALLED_APPS.insert(0, 'whitenoise.runserver_nostatic')
+    INSTALLED_APPS.insert(0, "whitenoise.runserver_nostatic")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

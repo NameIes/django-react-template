@@ -16,8 +16,9 @@ class AuthStore {
       const res = await AuthService.login(username, password);
       localStorage.setItem('token', res.data.access);
       this.isAuth = true;
+      return true;
     } catch (e) {
-      console.log('Login error', e);
+      return false;
     } finally {
       this.isAuthInProgress = false;
     }
@@ -38,6 +39,11 @@ class AuthStore {
 
   async checkAuth() {
     this.isAuthInProgress = true;
+    if (localStorage.getItem('token') === null) {
+      this.isAuth = false;
+      this.isAuthInProgress = false;
+      return;
+    }
     try {
       await AuthService.verifyToken();
       this.isAuth = true;
@@ -54,8 +60,9 @@ class AuthStore {
       await AuthService.logout();
       localStorage.removeItem('token');
       this.isAuth = false;
+      return true;
     } catch (e) {
-      console.log('Logout error', e);
+      return false;
     } finally {
       this.isAuthInProgress = false;
     }

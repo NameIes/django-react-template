@@ -7,14 +7,29 @@ import djangoLogo from '/django.svg'
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
-import { Box, Button, ButtonGroup, Container, Grid } from '@mui/material';
+import { Box, Button, ButtonGroup, Container, Grid, Typography } from '@mui/material';
 import Login from './pages/Login/Login';
+import Profile from './pages/Profile/Profile';
+import { observer } from 'mobx-react-lite';
+import { grey } from '@mui/material/colors';
 
 
 function App() {
   useEffect(() => {
     AuthStore.checkAuth();
   }, []);
+
+  const ObserveAuth = observer(({auth}: {auth: typeof AuthStore}) => {
+    return (
+      <>
+        {auth.isAuth ?
+          <Button sx={{ px: 4 }} onClick={auth.logout}>Logout</Button>
+        :
+          <Button component={Link} to="/login" sx={{ px: 4 }}>Login</Button>
+        }
+      </>
+    );
+  });
 
   return (
     <Container maxWidth="xl">
@@ -56,7 +71,7 @@ function App() {
           <BrowserRouter>
             <ButtonGroup variant='text' fullWidth sx={{ my: 3 }}>
               <Button component={Link} to="/" sx={{ px: 4 }}>Home</Button>
-              <Button component={Link} to="/login" sx={{ px: 4 }}>Login</Button>
+              <ObserveAuth auth={AuthStore} />
               <Button component={Link} to="/home" sx={{ px: 4 }}>Profile</Button>
             </ButtonGroup>
             <Routes>
@@ -64,7 +79,7 @@ function App() {
               <Route path='/login' element={<Login />} />
               <Route path='/home' element={
                 <PrivateRoute>
-                  <Home />
+                  <Profile />
                 </PrivateRoute>
               } />
               <Route path='*' element={<div>404</div>} />
@@ -72,8 +87,13 @@ function App() {
           </BrowserRouter>
         </Box>
 
-        <p className="read-the-docs">
+        <p>
           Click on the logos to learn more
+        </p>
+        <p>
+          Or type
+          <Typography component="span" sx={{ backgroundColor: grey[200], mx: '4px', p: '4px', borderRadius: 1 }}>just docs</Typography>
+          in your shell
         </p>
       </Box>
     </Container>
