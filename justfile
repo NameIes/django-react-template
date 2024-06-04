@@ -60,7 +60,7 @@ env:
 # Format HTML
 @format_html:
     just _start_msg "Formatting HTML using djLint"
-    djlint . --reformat --quiet
+    -djlint . --reformat --quiet
 
 # Format JS
 @format_js:
@@ -126,7 +126,7 @@ env:
     pytest --cov --ds=core.settings; coverage html; .\htmlcov\index.html
 
 # Run pre-commit checks
-@pre_commit: format lint test
+@pre_commit: build_frontend format lint test
 
 # Upgrade node requirements based on `package.json` file
 @upgrade_node_packages:
