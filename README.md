@@ -12,6 +12,7 @@ Of course, you can use this template on VPS and customize it yourself to work wi
 - [Python Decouple](https://github.com/HBNetwork/python-decouple) - Used for managing enviroment variables.
 - [Just](https://github.com/casey/just) - Popular tool for running common commands (make equivalent).
 - [UV](https://github.com/astral-sh/uv) - Used to maintain python requirements.
+- [pre-commit](https://pre-commit.com/) - A framework for managing and maintaining multi-language pre-commit hooks.
 
 ### 📦️ Django packages
 
