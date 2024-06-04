@@ -20,7 +20,7 @@ Of course, you can use this template on VPS and customize it yourself to work wi
 - [Django Rest Framework](https://www.django-rest-framework.org/) - Powerful and flexible toolkit for building Web APIs.
 - [dj-rest-auth](https://dj-rest-auth.readthedocs.io/) - Popular package for adding authentication workflows to a Django Rest Framework.
 - [CORS Headers](https://github.com/adamchainz/django-cors-headers) - A Django app that adds Cross-Origin Resource Sharing (CORS) headers to responses.
-<!-- - `TODO:` [Celery](https://docs.celeryq.dev/en/stable/) - Most popular task runner for running asynchronous tasks in the background. -->
+- [Whitenoise](https://github.com/evansd/whitenoise) - Radically simplified static file serving for Python web apps.
 
 ### 🔧 Python Testing Tools
 
@@ -44,6 +44,9 @@ Of course, you can use this template on VPS and customize it yourself to work wi
 - [Vite](https://vitejs.dev/) - A fast frontend build tool.
 - [MUI](https://mui.com/material-ui/getting-started/) - Popular UI framework.
 - [Axios](https://axios-http.com/docs/intro) - A promise-based HTTP Client for node.js and the browser.
+- [React](https://react.dev/) - The library for web and native user interfaces.
+- [React Router](https://reactrouter.com/) - React Router enables "client side routing".
+- [MobX](https://mobx.js.org/) - Signal based library that makes state management simple and scalable by transparently applying functional reactive programming.
 
 ### 📝 Documentation
 
