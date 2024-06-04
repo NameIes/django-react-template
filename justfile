@@ -140,26 +140,26 @@ env:
 
 # Install python requirements
 @install_python_packages:
-    echo "▓▓▓ Installing python requirements"
+    echo "--- Installing python requirements"
     uv pip install -r .\requirements\dev.in
 
 # Install node requirements
 @install_node_packages:
-    echo "▓▓▓ Installing node requirements"
+    echo "--- Installing node requirements"
     npm i
 
 # Create .env file
 [private]
 @create_dotenv:
-    echo "▓▓▓ Creating .env"
+    echo "--- Creating .env"
     .\.venv\Scripts\python .\utils\create_dotenv.py
 
 # Add pre-commit hook to git
 @add_pre_commit_git_hook:
-    echo "▓▓▓ Adding pre-commit git hook"
-    .\.venv\Scripts\python pre-commit install
+    echo "--- Adding pre-commit git hook"
+    .\.venv\Scripts\activate; pre-commit install
 
 # Create venv and install requirements
 @setup: install_node_packages && install_python_packages create_dotenv add_pre_commit_git_hook
-    echo "▓▓▓ Creating virtual enviroment"
+    echo "--- Creating virtual enviroment"
     uv venv
