@@ -154,7 +154,12 @@ env:
     echo "▓▓▓ Creating .env"
     .\.venv\Scripts\python .\utils\create_dotenv.py
 
+# Add pre-commit hook to git
+@add_pre_commit_git_hook:
+    echo "▓▓▓ Adding pre-commit git hook"
+    .\.venv\Scripts\python pre-commit install
+
 # Create venv and install requirements
-@setup: install_node_packages && install_python_packages create_dotenv
+@setup: install_node_packages && install_python_packages create_dotenv add_pre_commit_git_hook
     echo "▓▓▓ Creating virtual enviroment"
     uv venv

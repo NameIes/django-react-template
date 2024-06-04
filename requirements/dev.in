@@ -13,3 +13,4 @@ mkdocs-linkcheck
 mkdocs-material
 mkdocstrings[python]
 django-stubs[compatible-mypy]
+pre-commit
