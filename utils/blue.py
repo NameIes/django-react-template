@@ -11,4 +11,7 @@ except ImportError:
     reset = ""
 
 if __name__ == "__main__":
-    print(f"{blue}▓▓▓ {sys.argv[1]}{reset}")
+    try:
+        print(f"{blue}--- {sys.argv[1]}{reset}")
+    except UnicodeEncodeError:
+        print(f"--- {sys.argv[1]}")
