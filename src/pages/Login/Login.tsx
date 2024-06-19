@@ -1,89 +1,59 @@
-import { Box, Button, TextField } from "@mui/material";
-import AuthStore from "../../store";
-import { useState } from "react";
+import { Box, Button, List, ListItem, TextField, Typography } from "@mui/material";
+import AuthStore from "../../stores/AuthStore";
+import { observer } from "mobx-react-lite";
 import { useNavigate } from "react-router-dom";
+import { red } from "@mui/material/colors";
 
-export default function Login() {
+const Login = observer(() => {
   const navigate = useNavigate();
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [usernameError, setUsernameError] = useState(false);
-  const [passwordError, setPasswordError] = useState(false);
+  const handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    AuthStore.setUsername((event.target as HTMLInputElement).value);
+  }
+  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) =>
+    AuthStore.setPassword((event.target as HTMLInputElement).value);
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-
-    let error_flag = false;
-
-    setUsernameError(false);
-    setPasswordError(false);
-
-    if (username === "") {
-      setUsernameError(true);
-      error_flag = true;
-    }
-    if (password === "") {
-      setPasswordError(true);
-      error_flag = true;
-    }
-
-    if (error_flag) return;
-
-    const login = async () => {
-      const res = await AuthStore.login(username, password);
-      if (res) {
-        navigate("/home");
-      } else {
-        setUsernameError(true);
-        setPasswordError(true);
-      }
-    };
-
-    login();
+    AuthStore.login().then(() => navigate('/profile'));
   };
 
+  const { values, errors, isAuthInProgress } = AuthStore;
+
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-      }}
-    >
-      <form
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: "10px",
-        }}
-        onSubmit={handleSubmit}
-      >
+    <Box sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column', mt: 5 }}>
+      <form autoComplete="off" onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+        <Typography textAlign={'center'} variant="h4" sx={{my: 2}}>Login</Typography>
+        {errors.length > 0 && (
+          <List sx={{ my: 2, backgroundColor: red[300], borderRadius: 1 }}>
+            {errors && errors.map((error) => <ListItem sx={{ color: 'white' }} key={error}>{error}</ListItem>)}
+          </List>
+        )}
         <TextField
-          variant="outlined"
           label="Username"
-          id="username"
-          size="small"
+          onChange={handleUsernameChange}
           required
-          value={username}
-          error={usernameError}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <TextField
           variant="outlined"
+          color="secondary"
+          value={values.username}
+        ></TextField>
+        <TextField
           label="Password"
-          id="password"
-          size="small"
+          onChange={handlePasswordChange}
           required
+          variant="outlined"
           type="password"
-          value={password}
-          error={passwordError}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <Button variant="contained" fullWidth type="submit">
-          Login
-        </Button>
+          color="secondary"
+          value={values.password}
+        ></TextField>
+        <Button
+          disabled={isAuthInProgress}
+          type="submit"
+          variant="contained"
+          sx={{ px: 3, mx: 'auto' }}
+        >Login</Button>
       </form>
     </Box>
   );
-}
+});
+
+export default Login;

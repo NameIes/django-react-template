@@ -23,20 +23,12 @@ from django.contrib import admin
 from django.urls import include, path, re_path
 from django.urls.resolvers import URLPattern, URLResolver
 
-from dj_rest_auth.views import PasswordResetConfirmView, PasswordResetView
-
 from apps.base.views import Index
 
 urlpatterns: list[URLPattern | URLResolver] = [
     path("admin/", admin.site.urls),
-    path("api/auth/", include("dj_rest_auth.urls")),
-    path("api/auth/password/reset/", PasswordResetView.as_view()),
-    path(
-        "api/auth/password/reset/confirm/<uidb64>/<token>/",
-        PasswordResetConfirmView.as_view(),
-        name="password_reset_confirm",
-    ),
-    path("api/auth/registration/", include("dj_rest_auth.registration.urls")),
+    path("api/auth/", include("djoser.urls")),
+    path("api/auth/", include("djoser.urls.jwt")),
 ]
 
 if settings.DEBUG:

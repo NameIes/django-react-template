@@ -47,13 +47,8 @@ INSTALLED_APPS = [
     "apps.base",
     "corsheaders",
     "rest_framework",
-    "rest_framework.authtoken",
-    "dj_rest_auth",
+    "djoser",
     "django.contrib.sites",
-    "allauth",
-    "allauth.account",
-    "allauth.socialaccount",
-    "dj_rest_auth.registration",
 ]
 
 # Middleware
@@ -86,7 +81,6 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 "core.context_processors.reactjs_assets_paths",
-                "core.context_processors.password_reset",
             ],
         },
     },
@@ -250,26 +244,46 @@ if DEBUG:
     ]
     CORS_ALLOW_PRIVATE_NETWORK = True
 
+# CSRF
+CSRF_COOKIE_NAME = "XSRF-TOKEN"
+
 # Rest framework
 REST_FRAMEWORK = {
-    "DEFAULT_AUTHENTICATION_CLASSES": ("dj_rest_auth.jwt_auth.JWTCookieAuthentication",),
+    "DEFAULT_AUTHENTICATION_CLASSES": ("rest_framework_simplejwt.authentication.JWTAuthentication",),
 }
 
-# Allauth
-SITE_ID = 1
-AUTHENTICATION_BACKENDS = [
-    "allauth.account.auth_backends.AuthenticationBackend",
-]
-ACCOUNT_AUTHENTICATION_METHOD = "username"
-ACCOUNT_ADAPTER = "apps.base.adapter.ReactAccountAdapter"
-CONFIRM_EMAIL_FRONTEND_URL = "http://localhost:8000/confirm-email"
-PASSWORD_RESET_FRONTEND_URL = "http://localhost:8000/verify-email"  # noqa: S105
+# Simple jwt
+SIMPLE_JWT = {
+    "AUTH_HEADER_TYPES": ("JWT",),
+}
 
-# Rest Auth
-REST_AUTH = {
-    "USE_JWT": True,
-    "JWT_AUTH_COOKIE": "access",
-    "JWT_AUTH_REFRESH_COOKIE": "refresh",
+# Djoser
+DJOSER = {
+    "PASSWORD_RESET_CONFIRM_URL": "#/password/reset/confirm/{uid}/{token}",
+    "USERNAME_RESET_CONFIRM_URL": "#/username/reset/confirm/{uid}/{token}",
+    "ACTIVATION_URL": "#/activate/{uid}/{token}",
+    "SEND_ACTIVATION_EMAIL": True,
+    "LOGIN_FIELD": "username",  # You can change the login field to other.
+    "SERIALIZERS": {
+        "activation": "djoser.serializers.ActivationSerializer",
+        "password_reset": "djoser.serializers.SendEmailResetSerializer",
+        "password_reset_confirm": "djoser.serializers.PasswordResetConfirmSerializer",
+        "password_reset_confirm_retype": "djoser.serializers.PasswordResetConfirmRetypeSerializer",
+        "set_password": "djoser.serializers.SetPasswordSerializer",
+        "set_password_retype": "djoser.serializers.SetPasswordRetypeSerializer",
+        "set_username": "djoser.serializers.SetUsernameSerializer",
+        "set_username_retype": "djoser.serializers.SetUsernameRetypeSerializer",
+        "username_reset": "djoser.serializers.SendEmailResetSerializer",
+        "username_reset_confirm": "djoser.serializers.UsernameResetConfirmSerializer",
+        "username_reset_confirm_retype": "djoser.serializers.UsernameResetConfirmRetypeSerializer",
+        "user_create": "djoser.serializers.UserCreateSerializer",
+        "user_create_password_retype": "djoser.serializers.UserCreatePasswordRetypeSerializer",
+        "user_delete": None,
+        "user": "djoser.serializers.UserSerializer",
+        "current_user": "djoser.serializers.UserSerializer",
+        "token": "djoser.serializers.TokenSerializer",
+        "token_create": "djoser.serializers.TokenCreateSerializer",
+    },
 }
 
 # Emails
