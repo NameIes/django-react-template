@@ -7,9 +7,9 @@
     "dev": "vite",
     "build": "tsc && vite build --emptyOutDir --base /static/frontend --outDir ./staticfiles/frontend",
     "lint-js": "eslint --ext ts,tsx .",
-    "lint-sass": "stylelint 'src/**/*.{css,scss}'",
+    "lint-sass": "stylelint --aei 'src/**/*.{css,scss}'",
     "format-js": "eslint --ext ts,tsx --fix .",
-    "format-sass": "stylelint --fix 'src/**/*.{css,scss}'",
+    "format-sass": "stylelint --aei --fix 'src/**/*.{css,scss}'",
     "preview": "vite preview"
   },
   "dependencies": {
