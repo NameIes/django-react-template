@@ -54,6 +54,7 @@ INSTALLED_APPS = [
 
 # Middleware
 MIDDLEWARE = [
+    "csp.middleware.CSPMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -301,3 +302,46 @@ SPECTACULAR_SETTINGS = {
     "VERSION": "1.0.0",
     "SERVE_INCLUDE_SCHEMA": False,
 }
+
+# Fix for Safari 12 compatibility issues, please check:
+# https://github.com/vintasoftware/safari-samesite-cookie-issue
+CSRF_COOKIE_SAMESITE = None
+SESSION_COOKIE_SAMESITE = None
+
+# Django CSP
+CSP_INCLUDE_NONCE_IN = ["script-src", "style-src", "font-src"]
+CSP_SCRIPT_SRC = [
+    "'self'",
+    "'unsafe-inline'",
+    "'unsafe-eval'",
+    "https://browser.sentry-cdn.com",
+    # drf-spectacular UI (Swagger and ReDoc)
+    "https://cdn.jsdelivr.net/npm/swagger-ui-dist@latest/",
+    "https://cdn.jsdelivr.net/npm/redoc@latest/",
+    "blob:",
+] + [f"*{host}" if host.startswith(".") else host for host in ALLOWED_HOSTS]
+CSP_CONNECT_SRC = [
+    "'self'",
+] + [f"*{host}" if host.startswith(".") else host for host in ALLOWED_HOSTS]
+CSP_STYLE_SRC = [
+    "'self'",
+    "'unsafe-inline'",
+    # drf-spectacular UI (Swagger and ReDoc)
+    "https://cdn.jsdelivr.net/npm/swagger-ui-dist@latest/",
+    "https://cdn.jsdelivr.net/npm/redoc@latest/",
+    "https://fonts.googleapis.com",
+]
+CSP_FONT_SRC = [
+    "'self'",
+    "'unsafe-inline'",
+    "data:",
+    # drf-spectacular UI (Swagger and ReDoc)
+    "https://fonts.gstatic.com",
+] + [f"*{host}" if host.startswith(".") else host for host in ALLOWED_HOSTS]
+CSP_IMG_SRC = [
+    "'self'",
+    # drf-spectacular UI (Swagger and ReDoc)
+    "data:",
+    "https://cdn.jsdelivr.net/npm/swagger-ui-dist@latest/",
+    "https://cdn.redoc.ly/redoc/",
+]
