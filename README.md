@@ -56,6 +56,7 @@ Of course, you can use this template on VPS and customize it yourself to work wi
 - [mkdocstrings](https://mkdocstrings.github.io/) - Build documentation from Python docstrings.
 - [mkdocs-include-markdown-plugin](https://github.com/mondeja/mkdocs-include-markdown-plugin) - Include docs from other files.
 - [mkdocs-linkcheck](https://github.com/byrnereese/linkchecker-mkdocs) - Automatic link checking.
+- [drf-spectacular](https://github.com/tfranzel/drf-spectacular) - Sane and flexible OpenAPI (3.0.3 & 3.1) schema generation for Django REST framework.
 
 ## Installation
 

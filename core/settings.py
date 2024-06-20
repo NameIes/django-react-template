@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "drf_spectacular",
     "apps.base",
     "corsheaders",
     "rest_framework",
@@ -250,6 +251,7 @@ CSRF_COOKIE_NAME = "XSRF-TOKEN"
 # Rest framework
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": ("rest_framework_simplejwt.authentication.JWTAuthentication",),
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
 
 # Simple jwt
@@ -289,3 +291,13 @@ DJOSER = {
 # Emails
 if DEBUG:
     EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+# Spectacular
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Django-React API",
+    "DESCRIPTION": """
+    This boilerplate/starter template will help you or you team to jump-start any new `Django + React` project.
+    """,
+    "VERSION": "1.0.0",
+    "SERVE_INCLUDE_SCHEMA": False,
+}

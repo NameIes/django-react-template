@@ -23,6 +23,8 @@ from django.contrib import admin
 from django.urls import include, path, re_path
 from django.urls.resolvers import URLPattern, URLResolver
 
+from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView
+
 from apps.base.views import Index
 
 urlpatterns: list[URLPattern | URLResolver] = [
@@ -35,6 +37,8 @@ if settings.DEBUG:
     urlpatterns += [
         path("__debug__/", include("debug_toolbar.urls")),
         path("admin/doc/", include("django.contrib.admindocs.urls")),
+        path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
+        path("api/docs/", SpectacularRedocView.as_view(url_name="schema"), name="schema-redoc"),
     ]
 
 urlpatterns += [
