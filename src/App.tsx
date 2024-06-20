@@ -12,7 +12,6 @@ import AuthStore from './stores/AuthStore';
 function App() {
   useEffect(() => {
     AuthStore.checkAuth();
-    console.log(AuthStore);
   }, []);
 
   return (
