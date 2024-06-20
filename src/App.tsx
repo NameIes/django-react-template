@@ -8,6 +8,7 @@ import Home from './pages/Home/Home';
 import Profile from './pages/Profile/Profile';
 import Login from './pages/Login/Login';
 import AuthStore from './stores/AuthStore';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 function App() {
   useEffect(() => {
@@ -22,7 +23,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>} />
         </Routes>
       </Container>
     </BrowserRouter>
